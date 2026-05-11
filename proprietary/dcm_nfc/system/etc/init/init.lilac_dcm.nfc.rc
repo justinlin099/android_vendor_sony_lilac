@@ -1,0 +1,3 @@
+on post-fs-data
+    chown nfc nfc /dev/cxd224x-i2c
+    chown nfc nfc /dev/bd7602-i2c
