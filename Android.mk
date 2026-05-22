@@ -4,6 +4,70 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),lilac)
+ifneq ($(filter lilac,$(TARGET_DEVICE)),)
+
+# Sony Framework Libraries
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.sony.device
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := prebuilt/framework/$(LOCAL_MODULE).jar
+LOCAL_MODULE_CLASS := JAVA_LIBRARIES
+LOCAL_MODULE_SUFFIX := $(COMMON_JAVA_PACKAGE_SUFFIX)
+LOCAL_DEX_PREOPT := false
+LOCAL_ENFORCE_USES_LIBRARIES := false
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.sonymobile.album
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := prebuilt/framework/$(LOCAL_MODULE).jar
+LOCAL_MODULE_CLASS := JAVA_LIBRARIES
+LOCAL_MODULE_SUFFIX := $(COMMON_JAVA_PACKAGE_SUFFIX)
+LOCAL_DEX_PREOPT := false
+LOCAL_ENFORCE_USES_LIBRARIES := false
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.sonymobile.album.internal
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := prebuilt/framework/$(LOCAL_MODULE).jar
+LOCAL_MODULE_CLASS := JAVA_LIBRARIES
+LOCAL_MODULE_SUFFIX := $(COMMON_JAVA_PACKAGE_SUFFIX)
+LOCAL_DEX_PREOPT := false
+LOCAL_ENFORCE_USES_LIBRARIES := false
+include $(BUILD_PREBUILT)
+
+# Sony Permissions
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.sony.device.xml
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := prebuilt/permissions/$(LOCAL_MODULE)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.sonymobile.album.xml
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := prebuilt/permissions/$(LOCAL_MODULE)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := com.sonymobile.album.internal.xml
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := prebuilt/permissions/$(LOCAL_MODULE)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := privapp-permissions-sony.xml
+LOCAL_MODULE_TAGS := optional
+LOCAL_SRC_FILES := prebuilt/permissions/$(LOCAL_MODULE)
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT_ETC)/permissions
+include $(BUILD_PREBUILT)
 
 endif
